@@ -6,8 +6,8 @@ Git Repo Fetch é uma aplicação full-stack desenvolvida com Next.js, RabbitMQ 
 ### Passo a passo para execução do projeto:
 
 ``` gitclone https://github.com/MatheusTavaresz/git-user-fetch.git ```
-  
-##### Front end
+
+##### Front End
 - cd front end 
 - npm install
 - npm run build
@@ -27,27 +27,27 @@ Git Repo Fetch é uma aplicação full-stack desenvolvida com Next.js, RabbitMQ 
 
 # Endpoints
 ##### Pesquisar usuario
-- Buscar perfil do usuário pelo nome de usuário do GitHub
-> URL: /findUser
+URL: ```/findUser```
 - Método: POST
 - Corpo da Requisição: { "username": "<nome_do_usuário>" }
-
 >  Descrição: Este endpoint busca informações do perfil do usuário no GitHub pelo nome de usuário fornecido e processa essas informações antes de salvar no banco de dados.
 
 ##### Obter dados do perfil do usuário
-- URL: /get-userProfile
+URL: ```/get-userProfile```
 - Método: GET
-- Descrição: Retorna os dados do perfil do usuário armazenados no banco de dados.
-> URL: /get-userRepos
-- Método: GET
-> Descrição: Retorna a lista de repositórios associados ao usuário armazenados no banco de dados.
+> Descrição: Retorna os dados do perfil do usuário armazenados no banco de dados.
+
 ##### Obter repositórios do usuário pelo nome de usuário do GitHub
-- URL: /:username/repositories
+URL: ```/:username/repositories```
 - Método: GET
 - Parâmetros: username=<nome_do_usuário>
 > Descrição: Retorna a lista de repositórios do usuário especificado pelo nome de usuário do GitHub.
 
-
+##### Excluir o repositório específico
+URL: ```/repositories/:id```
+- Método: DELETE
+- Parâmetros: Id do repositório
+> Descrição: Deleta o repositório especificado pela requisição ou pelo evento de clique no front end.
 
 ##### Tecnologias utilizadas
 - Front-end: Next.js
