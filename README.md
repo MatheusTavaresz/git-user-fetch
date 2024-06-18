@@ -35,8 +35,6 @@ Git Repo Fetch é uma aplicação full-stack desenvolvida com Next.js, RabbitMQ 
 >  Descrição: Este endpoint busca informações do perfil do usuário no GitHub pelo nome de usuário fornecido e processa essas informações antes de salvar no banco de dados.
 
 ##### Obter dados do perfil do usuário
-###### Obter o avatar e nome do usuário
-
 - URL: /get-userProfile
 - Método: GET
 - Descrição: Retorna os dados do perfil do usuário armazenados no banco de dados.
