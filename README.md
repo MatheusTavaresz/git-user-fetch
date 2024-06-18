@@ -5,8 +5,8 @@ Git Repo Fetch é uma aplicação full-stack desenvolvida com Next.js, RabbitMQ 
 
 ### Passo a passo para execução do projeto:
 
-- gitclone https://github.com/MatheusTavaresz/git-user-fetch.git
-- 
+``` gitclone https://github.com/MatheusTavaresz/git-user-fetch.git ```
+  
 ##### Front end
 - cd front end 
 - npm install
