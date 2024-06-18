@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run build && npm run start"
+
+  backend-producer:
+    build: ./backend/producer
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+      - mariadb
+    environment:
+      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+      DATABASE_URL: "mysql://root:root@mariadb:3306/git_repositories"
+    command: sh -c "npm install && npm run start:dev"
+
+  backend-consumer:
+    build: ./backend/consumer
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBITMQ_URL: "amqp://guest:guest@rabbitmq:5672"
+    command: sh -c "npm install && npm run start:dev"
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+
+  mariadb:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_USER: "root"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "git_repositories"
