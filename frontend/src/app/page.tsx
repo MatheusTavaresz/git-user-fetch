@@ -4,7 +4,7 @@ import {
   fetchUserOnGit,
   getUserRepositories,
 } from "@/infrastructure/utils/api";
-import UserProfile from "@/components/UserProfile"; // Atualize o caminho conforme necessário
+import UserProfile from "@/components/UserProfile"; 
 import RepositoryContainer from "@/components/RepositoryContainer";
 
 export default function Home() {
